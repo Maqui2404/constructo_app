@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Instrumentos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Validación de Instrumentos</h1>
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Cargar Archivo de Datos</label>
+          <input type="file" class="form-control" id="file" name="file">
+        </div>
+        <div class="form-group">
+          <label for="n_folds">Número de Folds para Validación Cruzada</label>
+          <input type="number" class="form-control" id="n_folds" name="n_folds" value="5">
+        </div>
+        <button type="submit" class="btn btn-primary">Ejecutar Análisis</button>
+      </form>
+
+      {% if results %}
+      <hr>
+      <h2>Resultados</h2>
+      <pre>{{ results }}</pre>
+      <img src="{{ plot_url }}" alt="Plot">
+      {% endif %}
+    </div>
+  </body>
+</html>
